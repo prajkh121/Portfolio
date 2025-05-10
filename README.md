@@ -8,7 +8,6 @@ Welcome to my personal portfolio website! This is a place where you can learn mo
 - [Skills]
 - [Projects]
 - [Contact]
--
 
 ## About Me
 
