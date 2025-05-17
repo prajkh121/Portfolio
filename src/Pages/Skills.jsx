@@ -4,7 +4,10 @@ const Skills = () => {
       className="skills-section"
       style={{
         minHeight: "80vh",
-        padding: "50px 20px",
+        padding: "60px 20px",
+        background: "linear-gradient(135deg, #fdfbfb, #ebedee)",
+        color: "#1a1a1a",
+        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
       }}
     >
       <div className="container">
@@ -12,117 +15,118 @@ const Skills = () => {
           className="text-center mb-5"
           style={{
             fontWeight: "700",
-            fontSize: "38px",
+            fontSize: "36px",
             textTransform: "uppercase",
-            letterSpacing: "2px",
-            color: "#222",
+            letterSpacing: "1.5px",
+            color: "#1a1a1a",
+            borderBottom: "3px solid #764ba2",
+            display: "inline-block",
+            paddingBottom: "8px",
+            marginBottom: "50px",
+            marginLeft: "auto",
+            marginRight: "auto",
+            maxWidth: "fit-content",
+            cursor: "default",
+            userSelect: "none",
           }}
         >
           My Skills
         </h2>
 
-        <div className="row">
-          <div className="col-md-6 mb-4">
-            <div
-              className="skill-box"
-              style={{
-                borderRadius: "15px",
-                padding: "30px",
-
-                boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-5px)";
-                e.currentTarget.style.boxShadow =
-                  "0 12px 30px rgba(0, 0, 0, 0.1)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow =
-                  "0 4px 20px rgba(0, 0, 0, 0.05)";
-              }}
-            >
-              <h4
+        <div className="row gy-4">
+          {[
+            {
+              title: "Frontend & Core Web",
+              skills: [
+                "HTML5, CSS3, JavaScript",
+                "React.js (Hooks, Functional Components)",
+                "Redux (State Management)",
+                "Responsive Design (Bootstrap, Material-UI)",
+                "Git & GitHub (Version Control)",
+              ],
+            },
+            {
+              title: "Backend & Tools",
+              skills: [
+                "MongoDB & SQL",
+                "Supabase (Beginner)",
+                "Node.js & Express.js (Beginner)",
+                "Version Control (Git & GitHub)",
+                "API Integration & JSON",
+              ],
+            },
+          ].map(({ title, skills }, idx) => (
+            <div className="col-md-6" key={idx}>
+              <div
+                className="skill-box"
                 style={{
-                  fontWeight: "600",
-                  fontSize: "24px",
-                  color: "#1a1a1a",
-                  marginBottom: "20px",
-                  borderBottom: "2px solid #ccc",
-                  paddingBottom: "10px",
+                  borderRadius: "15px",
+                  padding: "30px",
+                  backgroundColor: "#fff",
+                  boxShadow:
+                    "0 8px 25px rgba(118, 75, 162, 0.15), 0 6px 15px rgba(118, 75, 162, 0.1)",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  height: "100%",
+                  cursor: "default",
+                  userSelect: "none",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-6px)";
+                  e.currentTarget.style.boxShadow =
+                    "0 20px 40px rgba(118, 75, 162, 0.3), 0 10px 30px rgba(118, 75, 162, 0.2)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow =
+                    "0 8px 25px rgba(118, 75, 162, 0.15), 0 6px 15px rgba(118, 75, 162, 0.1)";
                 }}
               >
-                Frontend & Core Web
-              </h4>
-              <ul
-                style={{
-                  fontSize: "17px",
-                  color: "#333",
-                  lineHeight: "2",
-                  listStyleType: "square",
-                  paddingLeft: "20px",
-                }}
-              >
-                <li>HTML5, CSS3, JavaScript</li>
-                <li>React.js (Hooks, Functional Components)</li>
-                <li>Redux (State Management)</li>
-                <li>Responsive Design (Bootstrap, Material-UI)</li>
-                <li>Git & GitHub (Version Control)</li>
-              </ul>
+                <h4
+                  style={{
+                    fontWeight: "700",
+                    fontSize: "24px",
+                    color: "#764ba2",
+                    marginBottom: "20px",
+                    borderBottom: "3px solid #764ba2",
+                    paddingBottom: "10px",
+                    letterSpacing: "1px",
+                  }}
+                >
+                  {title}
+                </h4>
+                <ul
+                  style={{
+                    fontSize: "17px",
+                    color: "#1a1a1a",
+                    lineHeight: "2.2",
+                    listStyleType: "disc",
+                    paddingLeft: "25px",
+                    userSelect: "text",
+                  }}
+                >
+                  {skills.map((skill, i) => (
+                    <li
+                      key={i}
+                      style={{
+                        marginBottom: "8px",
+                        fontWeight: "500",
+                        transition: "color 0.3s ease",
+                        cursor: "default",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.color = "#764ba2";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.color = "#1a1a1a";
+                      }}
+                    >
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
-
-          <div className="col-md-6 mb-4">
-            <div
-              className="skill-box"
-              style={{
-                borderRadius: "15px",
-                padding: "30px",
-
-                boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-5px)";
-                e.currentTarget.style.boxShadow =
-                  "0 12px 30px rgba(0, 0, 0, 0.1)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow =
-                  "0 4px 20px rgba(0, 0, 0, 0.05)";
-              }}
-            >
-              <h4
-                style={{
-                  fontWeight: "600",
-                  fontSize: "24px",
-                  color: "#1a1a1a",
-                  marginBottom: "20px",
-                  borderBottom: "2px solid #ccc",
-                  paddingBottom: "10px",
-                }}
-              >
-                Backend & Tools
-              </h4>
-              <ul
-                style={{
-                  fontSize: "17px",
-                  color: "#333",
-                  lineHeight: "2",
-                  listStyleType: "square",
-                  paddingLeft: "20px",
-                }}
-              >
-                <li>MongoDB & SQL</li>
-                <li>Supabase (Beginner)</li>
-                <li>Node.js & Express.js (Beginner)</li>
-                <li>Version Control (Git & GitHub)</li>
-                <li>API Integration & JSON</li>
-              </ul>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

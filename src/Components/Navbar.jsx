@@ -8,25 +8,32 @@ const Navbar = () => {
 
   return (
     <nav
-      className="navbar navbar-expand-lg navbar-light"
+      className="navbar navbar-expand-lg"
       style={{
         padding: "15px 30px",
-        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)",
-        fontWeight: "600",
+        background: "linear-gradient(90deg, #e0c3fc, #8ec5fc)",
+        boxShadow: "0 8px 16px rgba(0, 0, 0, 0.1)",
+        fontWeight: 600,
         fontSize: "18px",
+        fontFamily: "'Poppins', sans-serif",
       }}
     >
       <div className="container">
-        <Link className="navbar-brand fw-bold fs-4" to="/">
-          MyPortfolio
+        <Link
+          className="navbar-brand fw-bold fs-3"
+          to="/"
+          style={{ color: "#1a1a1a" }}
+        >
+          Portfolio
         </Link>
         <button
-          className="navbar-toggler"
+          className="navbar-toggler border-0"
           type="button"
           onClick={toggleNavbar}
           aria-controls="navbarNav"
           aria-expanded={!isCollapsed}
           aria-label="Toggle navigation"
+          style={{ color: "#1a1a1a" }}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -38,21 +45,29 @@ const Navbar = () => {
           id="navbarNav"
         >
           <ul className="navbar-nav text-center">
-            <li className="nav-item">
-              <Link className="nav-link" to="/about" onClick={toggleNavbar}>
-                About
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/skills" onClick={toggleNavbar}>
-                Skills
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/contact" onClick={toggleNavbar}>
-                Contact
-              </Link>
-            </li>
+            {["about", "skills", "projects", "experience", "contact"].map(
+              (page) => (
+                <li className="nav-item" key={page}>
+                  <Link
+                    className="nav-link mx-3"
+                    to={`/${page}`}
+                    onClick={toggleNavbar}
+                    style={{
+                      color: "#1a1a1a",
+                      transition: "all 0.3s ease",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.target.style.textDecoration = "underline")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.target.style.textDecoration = "none")
+                    }
+                  >
+                    {page.charAt(0).toUpperCase() + page.slice(1)}
+                  </Link>
+                </li>
+              )
+            )}
           </ul>
         </div>
       </div>
